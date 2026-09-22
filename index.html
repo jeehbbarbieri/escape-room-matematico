@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Escape Room Matemático</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="telaInicial">
+<div class="status-laboratorio">
+    🧪 LABORATÓRIO MATEMÁTICO • ACESSO RESTRITO
+</div>
+<h1 id="tituloJogo">Escape Room Matemático</h1>
+<p>Você consegue escapar?</p>
+
+<button id="btnIniciar">▶ Jogar minha sala</button>
+
+<button id="btnBancoSalas" data-fala="Banco de Salas">
+    📚 Banco de Salas
+</button>
+
+<button id="btnEditar">🛠️ Criar / Editar minha sala</button>
+
+<button id="btnAtivarLeitura">🔊 Ativar leitura dos botões</button>
+
+
+<p class="credito-desenvolvedora">
+    Produto Educacional desenvolvido por Jéssica Berns Barbieri
+    <br>
+    Licenciatura em Matemática • IFSC • 2026
+</p>
+    </div>
+
+<div id="telaBancoSalas" style="display: none;">
+
+    <h1>📚 Banco de Salas</h1>
+
+    <p>Escolha o ano escolar:</p>
+
+    <div class="anos-banco">
+       <button class="btnAnoBanco" data-ano="6ano" data-fala="6º ano">🔐 6º ANO</button>
+
+<button class="btnAnoBanco" data-ano="7ano" data-fala="7º ano">🔐 7º ANO</button>
+
+<button class="btnAnoBanco" data-ano="8ano" data-fala="8º ano">🔐 8º ANO</button>
+
+<button class="btnAnoBanco" data-ano="9ano" data-fala="9º ano">🔐 9º ANO</button>
+    </div>
+
+    <button id="btnVoltarBanco">⬅ Voltar</button>
+
+</div>
+
+<div id="telaConteudosBanco" style="display: none;">
+
+    <h1 id="tituloAnoBanco">6º ANO</h1>
+
+    <p>Escolha uma sala de conteúdo:</p>
+
+    <div id="listaConteudosBanco">
+        <!-- Os conteúdos serão criados automaticamente -->
+    </div>
+
+    <button id="btnVoltarAnos">⬅ Voltar aos anos</button>
+
+</div>
+
+<div id="telaEditor" style="display: none;">
+
+    <h2>Editor do Escape Room</h2>
+
+    <p>Aqui o professor poderá editar o jogo.</p>
+<label for="campoTitulo">Título do jogo:</label>
+
+<input type="text" id="campoTitulo">
+
+<button id="btnSalvarTitulo">Salvar título</button>
+
+<p id="mensagemEditor"></p>
+<hr>
+
+<h3>Editar desafios</h3>
+
+<label for="seletorDesafio">Escolha o desafio:</label>
+
+<select id="seletorDesafio"></select>
+
+<br><br>
+
+<label>Título da sala:</label>
+<input type="text" id="campoTituloDesafio">
+
+<br><br>
+
+<label>Pergunta:</label>
+<input type="text" id="campoPerguntaDesafio">
+
+<br><br>
+
+<label>Resposta:</label>
+<input type="text" id="campoRespostaDesafio">
+
+<br><br>
+
+<label>Dica:</label>
+<input type="text" id="campoDicaDesafio">
+<br><br>
+
+<button id="btnSalvarDesafio">Salvar desafio</button>
+
+<button id="btnNovoDesafio">➕ Novo desafio</button>
+<button id="btnExcluirDesafio">🗑️ Excluir desafio</button>
+<button id="btnExportarJogo">💾 Exportar jogo</button>
+<button id="btnImportarJogo">📂 Importar jogo</button>
+
+<input
+    type="file"
+    id="arquivoImportarJogo"
+    accept=".json"
+    style="display: none;"
+>
+
+<p id="mensagemDesafioEditor"></p>
+<br><br>
+
+    <button id="btnVoltar">Voltar</button>
+
+</div>
+
+   <div id="telaJogo" style="display: none;">
+
+    <div id="desafioAtual">
+        <p id="progresso"></p>
+
+        <h2 id="tituloDesafio"></h2>
+<p id="cronometro">Tempo: 00:00</p>
+
+        <p id="textoApoio">Resolva o desafio para continuar:</p>
+
+        <p><strong id="perguntaDesafio"></strong></p>
+<button id="btnOuvirDesafio">🔊 Ouvir desafio</button>
+
+        <input type="text" id="respostaDesafio" placeholder="Digite sua resposta">
+
+        <button id="btnResponderDesafio">Responder</button>
+        <button id="btnDica">💡 Pedir dica</button>
+
+        <p id="dicaDesafio" style="display: none;"></p>
+
+<p id="mensagemDesafio" role="status" aria-live="polite"></p>
+        <button id="btnProximo" style="display: none;">Avançar 🔓</button>
+
+    </div>
+
+</div>
+
+<div id="telaFinal" style="display: none;">
+
+    <h1>🎉 Parabéns!</h1>
+
+    <p>Você conseguiu escapar!</p>
+
+    <p id="tempoFinal"></p>
+
+    <button id="btnJogarNovamente">Jogar novamente</button>
+
+</div>
+
+<audio id="somAmbiente" loop>
+    <source src="laboratorio-ambiente.mp3" type="audio/mpeg">
+</audio>
+
+<script src="dados.js"></script>
+<script src="banco-desafios.js"></script>
+<script src="jogo.js"></script>
+
+</body>
+</html>
