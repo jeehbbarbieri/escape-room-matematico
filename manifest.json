@@ -1,0 +1,10 @@
+{
+  "name": "Escape Room Matemático",
+  "short_name": "Escape Matemático",
+  "description": "Escape Room Matemático educacional para os anos finais do Ensino Fundamental.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "lang": "pt-BR"
+}
